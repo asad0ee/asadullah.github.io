@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Asad - Senior iOS & Spatial Architect</title>
+    <meta name="description" content="Sleek, obsidian-black iOS Developer portfolio featuring interactive 3D particle systems, SwiftUI mockups, and high-performance Metal experiences.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fullscreen Three.js Canvas Backdrop (drifting particles & Siri-like soft glowing lights) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Main Floating Browser Container -->
+    <div class="browser-window" id="browser-container">
+        <!-- Browser Top Bar (Mac style) -->
+        <header class="browser-header">
+            <div class="window-controls">
+                <span class="control-dot close" title="Close"></span>
+                <span class="control-dot minimize" title="Minimize"></span>
+                <span class="control-dot maximize" title="Maximize"></span>
+            </div>
+            
+            <div class="history-nav">
+                <button class="nav-arrow" aria-label="Go back">&lt;</button>
+                <button class="nav-arrow" aria-label="Go forward">&gt;</button>
+            </div>
+
+            <div class="url-bar">
+                <span class="lock-icon">🔒</span>
+                <span class="url-text">developer.apple.com/portfolio/asad</span>
+                <span class="refresh-icon">↻</span>
+            </div>
+
+            <div class="browser-actions">
+                <button class="action-btn" aria-label="Share">📤</button>
+                <button class="action-btn" aria-label="New Tab">＋</button>
+                <button class="action-btn" aria-label="View Tabs">❐</button>
+            </div>
+        </header>
+
+        <!-- Application Navigation -->
+        <nav class="app-nav">
+            <div class="app-logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">ASAD <span class="logo-sep">//</span> SWIFT ARCHITECT</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active" id="nav-home">HOME</a></li>
+                <li><a href="#projects" class="nav-link" id="nav-projects">PROJECTS</a></li>
+                <li><a href="#experience" class="nav-link" id="nav-experience">EXPERIENCE</a></li>
+                <li><a href="#about" class="nav-link" id="nav-about">ABOUT ME</a></li>
+                <li><a href="#contact" class="nav-link" id="nav-contact">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Scrollable Window Content -->
+        <div class="window-content" id="scroll-container">
+            <!-- Three.js Interactive WebGL Container (fixed inside the browser frame) -->
+            <div class="webgl-container">
+                <canvas id="sculpture-canvas"></canvas>
+            </div>
+
+            <!-- Home / Hero Section -->
+            <section id="hero" class="content-section hero-section">
+                <!-- User Profile Badge at the top -->
+                <div class="hero-profile-container">
+                    <div class="profile-badge">
+                        <img src="profile/avatar.png" alt="Asad" class="profile-img">
+                    </div>
+                    <h2 class="profile-name">Asad</h2>
+                    <p class="profile-role">Creative iOS &amp; Spatial Architect</p>
+                </div>
+                
+                <div class="hero-spacer"></div>
+                
+                <div class="hero-bottom-text">
+                    <h1 class="hero-title animate-glow">iOS CREATIVE DEVELOPER</h1>
+                    <p class="hero-subtitle">Sleek SwiftUI interfaces, high-performance Metal shaders, and fluid 3D interactions.</p>
+                    <div class="scroll-hint">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"> Selected Applications</span>
+                        <h2 class="section-title">Projects</h2>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card glow-card">
+                            <div class="project-image-wrapper">
+                                <img src="screenshots/project_aetheros.png" alt="AetherOS Spatial Dashboard" class="project-screenshot">
+                            </div>
+                            <div class="project-num">SWIFTUI</div>
+                            <h3 class="project-title">AetherOS</h3>
+                            <p class="project-desc">A spatial computing dashboard designed for visionOS. Leverages fluid windows, volumetric components, and custom gesture controllers.</p>
+                            <div class="project-tags">
+                                <span class="tag">SwiftUI</span>
+                                <span class="tag">visionOS</span>
+                                <span class="tag">RealityKit</span>
+                            </div>
+                        </div>
+                        <div class="project-card glow-card">
+                            <div class="project-image-wrapper">
+                                <img src="screenshots/project_lumina.png" alt="Lumina Vision Gesture Tracking" class="project-screenshot">
+                            </div>
+                            <div class="project-num">COREML</div>
+                            <h3 class="project-title">Lumina Vision</h3>
+                            <p class="project-desc">Real-time mobile hand-tracking app performing sub-millisecond pose estimation, feeding physics-based interactive canvas particles.</p>
+                            <div class="project-tags">
+                                <span class="tag">Swift</span>
+                                <span class="tag">Vision Framework</span>
+                                <span class="tag">CoreML</span>
+                            </div>
+                        </div>
+                        <div class="project-card glow-card">
+                            <div class="project-image-wrapper">
+                                <img src="screenshots/project_apex.png" alt="Apex Metal Engine" class="project-screenshot">
+                            </div>
+                            <div class="project-num">METAL</div>
+                            <h3 class="project-title">Apex Engine</h3>
+                            <p class="project-desc">A custom 3D game engine and GPU renderer written from scratch. Uses Metal API for vertex rendering, compute shaders, and spatial grids.</p>
+                            <div class="project-tags">
+                                <span class="tag">Metal</span>
+                                <span class="tag">C++ / Swift</span>
+                                <span class="tag">SIMD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="content-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"> Professional Timeline</span>
+                        <h2 class="section-title">Experience</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2024 - PRESENT</div>
+                            <div class="timeline-content glow-card">
+                                <h3 class="role-title">Senior iOS Architect</h3>
+                                <h4 class="company-name">Apple Inc.</h4>
+                                <p class="role-desc">Architecting next-generation SwiftUI frameworks, designing layout protocols, and optimizing system framework render trees for fluid iOS and visionOS user experiences.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2022 - 2024</div>
+                            <div class="timeline-content glow-card">
+                                <h3 class="role-title">Creative iOS Developer</h3>
+                                <h4 class="company-name">Swift Studio</h4>
+                                <p class="role-desc">Engineered interactive vector graphics apps using UIKit and custom Metal compute pipelines. Handled heavy image filters rendering consistently at 120 FPS.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2020 - 2022</div>
+                            <div class="timeline-content glow-card">
+                                <h3 class="role-title">Mobile Technical Lead</h3>
+                                <h4 class="company-name">Prism Interactive</h4>
+                                <p class="role-desc">Led a team of developers deploying CoreML solutions. Standardized SwiftUI architectures across multiple client iOS and iPadOS applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Me Section -->
+            <section id="about" class="content-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"> Apple Developer Profile</span>
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-text-card glow-card">
+                            <p class="about-para">I am an iOS Architect focused on the intersection of native performance and premium design. I build applications that take full advantage of Apple silicon using SwiftUI, Metal, and native compute APIs.</p>
+                            <p class="about-para">I believe that clean API design and rendering performance are key to crafting great user experiences. Whether optimizing CoreData schemas or writing custom shaders for Metal, I design for fluidity and responsiveness.</p>
+                        </div>
+                        <div class="skills-card glow-card">
+                            <h3 class="skills-title">iOS Skill Matrix</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-name">SwiftUI / UIKit</span>
+                                    <div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Metal Graphics API</span>
+                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">CoreML & Vision Framework</span>
+                                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Combine / Concurrency (async/await)</span>
+                                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Instruments / Performance Tuning</span>
+                                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="content-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"> Transmit Message</span>
+                        <h2 class="section-title">Contact</h2>
+                    </div>
+                    <div class="contact-layout">
+                        <div class="contact-info glow-card">
+                            <h3>Let's build native magic.</h3>
+                            <p>Interested in deploying high-performance native iOS systems or custom Swift products? Send an encrypted transmission below.</p>
+                            <div class="info-list">
+                                <div class="info-item">
+                                    <span class="info-label">Developer Email</span>
+                                    <a href="mailto:developer@apple.com" class="info-val">developer@apple.com</a>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Base Location</span>
+                                    <span class="info-val">Cupertino, California</span>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="contact-form glow-card" id="portfolio-contact-form">
+                            <div class="form-group">
+                                <label for="form-name">Name</label>
+                                <input type="text" id="form-name" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Apple ID / Email</label>
+                                <input type="email" id="form-email" required placeholder="Your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message">Message</label>
+                                <textarea id="form-message" rows="4" required placeholder="Describe your iOS project details"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" id="btn-submit">
+                                <span>SEND SECURE TRANSMISSION</span>
+                                <div class="btn-glow"></div>
+                            </button>
+                            <div class="form-feedback" id="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer inside the browser frame -->
+            <footer class="app-footer">
+                <p>&copy; 2026 Asad iOS Architect Portfolio. Designed for Apple Platforms.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Three.js CDN Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
