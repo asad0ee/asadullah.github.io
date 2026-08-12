@@ -5,509 +5,567 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Asadullah - Senior iOS Software Engineer</title>
     <meta name="description" content="Professional portfolio of Asadullah, Senior iOS Software Engineer. Over 5 years of experience architecting and shipping 30+ native iOS apps using Swift, SwiftUI, Agora SDK live streaming, Vision SDK, and modular Clean Architecture.">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <!-- CSS stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Fullscreen Three.js Canvas Backdrop (drifting particles & Siri-like soft glowing lights) -->
-    <canvas id="bg-canvas"></canvas>
 
-    <!-- Main Floating Browser Container -->
-    <div class="browser-window" id="browser-container">
-        <!-- Browser Top Bar (Mac style) -->
-        <header class="browser-header">
-            <div class="window-controls">
-                <span class="control-dot close" title="Close"></span>
-                <span class="control-dot minimize" title="Minimize"></span>
-                <span class="control-dot maximize" title="Maximize"></span>
-            </div>
-            
-            <div class="history-nav">
-                <button class="nav-arrow" aria-label="Go back">&lt;</button>
-                <button class="nav-arrow" aria-label="Go forward">&gt;</button>
-            </div>
+    <!-- CSS-only Siri-style Animated Blur Gradient Mesh Backdrop -->
+    <div class="mesh-bg">
+        <div class="mesh-circle mesh-circle-1"></div>
+        <div class="mesh-circle mesh-circle-2"></div>
+        <div class="mesh-circle mesh-circle-3"></div>
+    </div>
 
-            <div class="url-bar">
-                <span class="lock-icon">🔒</span>
-                <span class="url-text">github.com/asadullah/ios-engineer</span>
-                <span class="refresh-icon">↻</span>
-            </div>
+    <!-- Header Navigation Bar -->
+    <header class="header-nav" id="my-navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span></span>
+                <span>ASADULLAH</span>
+                <span class="nav-logo-sep">//</span>
+                <span style="font-weight: 500; color: var(--text-secondary); font-size: 13.5px; font-family: var(--font-body); letter-spacing: 0.5px;">iOS ENGINEER</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active" id="nav-home">Home</a></li>
+                    <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+                    <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+                    <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            <div class="browser-actions">
-                <button class="action-btn" aria-label="Share">📤</button>
-                <button class="action-btn" aria-label="New Tab">＋</button>
-                <button class="action-btn" aria-label="View Tabs">❐</button>
-            </div>
-        </header>
+    <!-- Scrollable Page Container -->
+    <main>
 
-        <!-- Application Navigation -->
-        <nav class="app-nav">
-            <div class="app-logo">
-                <span class="logo-icon"></span>
-                <span class="logo-text">ASADULLAH <span class="logo-sep">//</span> iOS ENGINEER</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#hero" class="nav-link active" id="nav-home">HOME</a></li>
-                <li><a href="#projects" class="nav-link" id="nav-projects">PROJECTS</a></li>
-                <li><a href="#experience" class="nav-link" id="nav-experience">EXPERIENCE</a></li>
-                <li><a href="#about" class="nav-link" id="nav-about">ABOUT ME</a></li>
-                <li><a href="#contact" class="nav-link" id="nav-contact">CONTACT</a></li>
-            </ul>
-        </nav>
-
-        <!-- Scrollable Window Content -->
-        <div class="window-content" id="scroll-container">
-            <!-- Three.js Interactive WebGL Container (fixed inside the browser frame) -->
-            <div class="webgl-container">
-                <canvas id="sculpture-canvas"></canvas>
-            </div>
-
-            <!-- Home / Hero Section -->
-            <section id="hero" class="content-section hero-section">
-                <!-- User Profile Badge at the top -->
-                <div class="hero-profile-container">
-                    <div class="profile-badge">
-                        <img src="profile/avatar.png" alt="Asadullah" class="profile-img">
+        <!-- Hero Section -->
+        <section id="hero" class="content-section hero-section">
+            <div class="section-container">
+                <div class="hero-content">
+                    <span class="hero-subtitle">Based in Islamabad, Pakistan</span>
+                    <h1 class="hero-title">Senior iOS Software Engineer</h1>
+                    <p class="hero-desc">Architecting native iOS solutions. Over 5 years of professional experience shipping 30+ applications, specializing in low-latency live video streaming (Agora SDK), on-device artificial intelligence utilities (Vision SDK/CoreML), and advanced navigation (Mapbox/Google Maps SDK).</p>
+                    
+                    <!-- Stats Board Row -->
+                    <div class="stats-board">
+                        <div class="stat-item">
+                            <span class="stat-val">5+ Years</span>
+                            <span class="stat-lbl">Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">30+ Apps</span>
+                            <span class="stat-lbl">Shipped</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">10 Live</span>
+                            <span class="stat-lbl">App Store Links</span>
+                        </div>
                     </div>
-                    <h2 class="profile-name">Asadullah</h2>
-                    <p class="profile-role">Senior iOS Software Engineer</p>
+
+                    <!-- CTA Group -->
+                    <div class="cta-group">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <button class="btn btn-link" onclick="window.print()">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="vertical-align: middle;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                            </svg>
+                            Print Resume
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Showcase & Live iTunes API) -->
+        <section id="projects" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag"> Curated App Portfolio</span>
+                    <h2 class="section-title">Selected Work</h2>
+                </div>
+
+                <!-- Category Filtering Chips -->
+                <div class="filter-container reveal">
+                    <ul class="filter-bar">
+                        <li><button class="filter-chip active" data-filter="all">All Applications</button></li>
+                        <li><button class="filter-chip" data-filter="streaming">Live Streaming</button></li>
+                        <li><button class="filter-chip" data-filter="ai-utility">AI &amp; Health</button></li>
+                        <li><button class="filter-chip" data-filter="navigation">Navigation</button></li>
+                        <li><button class="filter-chip" data-filter="productivity">Productivity</button></li>
+                    </ul>
+                </div>
+
+                <!-- Bento Grid Container -->
+                <div class="projects-grid reveal">
+                    
+                    <!-- App 1: Stream (Go Viral) [Span 3] -->
+                    <div class="bento-card span-3" data-app-id="6755434754" data-category="streaming" data-key="stream">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Stream App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.9</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Live Streaming</span>
+                            <h3 class="bento-title">Stream (Go Viral)</h3>
+                            <p class="bento-desc">Live streaming app with low-latency Agora video call integration and custom audio/video media editor.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">SwiftUI</span>
+                                <span class="app-tech-badge">Agora SDK</span>
+                                <span class="app-tech-badge">AVFoundation</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 2: Buzzscanner Pro [Span 3] -->
+                    <div class="bento-card span-3" data-app-id="6790825985" data-category="ai-utility" data-key="buzzscanner">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Buzzscanner App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.8</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">AI Utility</span>
+                            <h3 class="bento-title">Buzzscanner Pro</h3>
+                            <p class="bento-desc">AI-powered QR &amp; barcode scanner utility reading codes via Vision SDK with custom QR generation and AdMob ads.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">Vision SDK</span>
+                                <span class="app-tech-badge">CoreData</span>
+                                <span class="app-tech-badge">AdMob</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 3: Bebelo [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="1613322776" data-category="navigation" data-key="bebelo">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Bebelo App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.7</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Travel &amp; Local</span>
+                            <h3 class="bento-title">Bebelo</h3>
+                            <p class="bento-desc">Nightlife discovery app for Madrid with Mapbox venue maps, real-time map pins, and drink price comparison.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">Mapbox</span>
+                                <span class="app-tech-badge">CoreLocation</span>
+                                <span class="app-tech-badge">REST API</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 4: Zophee [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="6749799325" data-category="ai-utility" data-key="zophee">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Zophee App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.9</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Health &amp; Wellness</span>
+                            <h3 class="bento-title">Zophee</h3>
+                            <p class="bento-desc">Mental wellness platform with anxiety relief exercises, structured audio sessions, and modern UI transitions.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">SwiftUI</span>
+                                <span class="app-tech-badge">AVFoundation</span>
+                                <span class="app-tech-badge">MVVM</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 5: Xplore Smore [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="1552349182" data-category="navigation" data-key="xploresmore">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Xplore Smore App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.8</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Navigation</span>
+                            <h3 class="bento-title">Xplore Smore</h3>
+                            <p class="bento-desc">Ski resort adventure app with offline trail maps, turn-by-turn navigation, and real-time GPS tracking.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">Mapbox</span>
+                                <span class="app-tech-badge">CoreLocation</span>
+                                <span class="app-tech-badge">Firebase</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 6: BioTech Pet [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="1661138888" data-category="ai-utility" data-key="biotechpet">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="BioTech Pet App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.7</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">AI Healthcare</span>
+                            <h3 class="bento-title">BioTech Pet</h3>
+                            <p class="bento-desc">AI-powered pet genetics app analyzing DNA traits, breed health insights, and kit ordering workflows.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">SwiftUI</span>
+                                <span class="app-tech-badge">AI Integration</span>
+                                <span class="app-tech-badge">Firebase</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 7: ARMOR Asset Management [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="1589139943" data-category="productivity" data-key="armor">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="ARMOR App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.8</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Business Utility</span>
+                            <h3 class="bento-title">ARMOR Asset</h3>
+                            <p class="bento-desc">Fleet tracking suite with background location monitoring, maintenance analytics, and security alerts.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">Core Data</span>
+                                <span class="app-tech-badge">RESTful APIs</span>
+                                <span class="app-tech-badge">Firebase</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 8: Rokoli Driver [Span 2] -->
+                    <div class="bento-card span-2" data-app-id="1594943282" data-category="navigation" data-key="rokoli">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Rokoli App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.6</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Navigation</span>
+                            <h3 class="bento-title">Rokoli Driver</h3>
+                            <p class="bento-desc">Ambulatory care transport app with real-time driver dispatching, route optimization, and fare calculation.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">Google Maps</span>
+                                <span class="app-tech-badge">WebSockets</span>
+                                <span class="app-tech-badge">UIKit</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 9: Tax Vault [Span 3] -->
+                    <div class="bento-card span-3" data-app-id="1562913098" data-category="productivity" data-key="taxvault">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="Tax Vault App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.7</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Productivity</span>
+                            <h3 class="bento-title">Tax Vault</h3>
+                            <p class="bento-desc">Tax document platform with PDF editing via PDFTron SDK, real-time admin chat, and push notifications.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">PDFTron SDK</span>
+                                <span class="app-tech-badge">Firebase</span>
+                                <span class="app-tech-badge">APNs</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                    <!-- App 10: Letts inkLink [Span 3] -->
+                    <div class="bento-card span-3" data-app-id="1524312891" data-category="productivity" data-key="inklink">
+                        <div class="bento-header">
+                            <div class="icon-skeleton shimmer-loader"></div>
+                            <img class="app-icon" src="" alt="inkLink App Icon" style="display: none;">
+                            
+                            <div class="rating-skeleton shimmer-loader"></div>
+                            <span class="app-store-rating" style="display: none;">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8 1.15-5.791 5.617 1.4 7.934L12 18.896l-7.277 3.823 1.4-7.934L.332 9.168l8-1.15z"/></svg>
+                                <span class="rating-val">4.8</span>
+                            </span>
+                        </div>
+                        <div class="bento-body">
+                            <span class="app-cat-tag">Productivity</span>
+                            <h3 class="bento-title">Letts inkLink</h3>
+                            <p class="bento-desc">Interactive calendar app with daily QR scanning, task management workflows, and custom calendar views.</p>
+                        </div>
+                        <div class="bento-footer">
+                            <div class="app-tech-list">
+                                <span class="app-tech-badge">FSCalendar</span>
+                                <span class="app-tech-badge">CoreGraphics</span>
+                                <span class="app-tech-badge">UIKit</span>
+                            </div>
+                            <button class="card-view-btn">GET</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag"> Professional Timeline</span>
+                    <h2 class="section-title">Work Experience</h2>
                 </div>
                 
-                <div class="hero-spacer"></div>
+                <div class="timeline">
+                    
+                    <!-- Job 1: Buzzware Tech -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">MARCH 2021 - PRESENT</span>
+                                <h3 class="timeline-role">Senior iOS Engineer</h3>
+                            </div>
+                            <div class="timeline-company" style="color: var(--accent);">Buzzware Tech (Pvt) Ltd</div>
+                            <ul class="timeline-desc-list">
+                                <li>Led end-to-end native iOS development and shipped 30+ production applications to the App Store, spanning live video streaming, AI scanning tools, navigation, and healthcare verticals.</li>
+                                <li>Integrated Agora SDK for low-latency live video streaming and interactive voice calls, built custom AVFoundation media editors, and integrated Vision SDK and AI APIs.</li>
+                                <li>Architected modular applications in Swift, SwiftUI, and UIKit using MVVM and MVC design patterns, ensuring high code maintainability, scalability, and testability.</li>
+                                <li>Profiled and resolved memory leaks and main-thread bottlenecks using Xcode Instruments to achieve a 25% faster cold start time, while automating Fastlane and GitHub Actions CI/CD workflows and AdMob monetization.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 2: Zong 4G -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">FEB 2020 - MARCH 2021</span>
+                                <h3 class="timeline-role">IT Support Officer</h3>
+                            </div>
+                            <div class="timeline-company" style="color: var(--text-secondary);">Zong 4G Pakistan</div>
+                            <ul class="timeline-desc-list">
+                                <li>Managed enterprise IT hardware and network operations, consistently resolving 100+ support tickets per quarter within SLA.</li>
+                                <li>Assisted in migrating 500+ departmental workstations to Windows 10, enhancing network stability and security.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me & Skills Matrix Section -->
+        <section id="about" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag"> Developer Profile</span>
+                    <h2 class="section-title">About &amp; Core Expertise</h2>
+                </div>
                 
-                <div class="hero-bottom-text">
-                    <h1 class="hero-title animate-glow">SENIOR iOS ENGINEER</h1>
-                    <p class="hero-subtitle">Architecting high-performance native iOS systems. Shipped 30+ applications including low-latency streaming (Agora SDK), on-device AI scanners (Vision/CoreML), and offline navigation (Mapbox/Google Maps).</p>
-                    
-                    <!-- Stats Grid -->
-                    <div style="display: flex; justify-content: center; width: 100%;">
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-num">5+ Years</div>
-                                <div class="stat-label">Experience</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-num">30+ Apps</div>
-                                <div class="stat-label">Shipped</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-num">10 Live</div>
-                                <div class="stat-label">App Store Links</div>
-                            </div>
+                <div class="contact-grid">
+                    <!-- Left: About Text -->
+                    <div class="contact-info-panel reveal">
+                        <div>
+                            <p class="contact-msg" style="margin-bottom: 24px; text-align: justify;">I am a Senior iOS Software Engineer with over 5 years of hands-on experience architecting, building, and shipping 30+ native iOS applications across live video streaming, AI utilities, healthcare, and interactive navigation.</p>
+                            <p class="contact-msg" style="text-align: justify;">Deeply proficient in Swift, SwiftUI, UIKit, Combine, and Swift Concurrency (async/await), with strong architectural grounding in MVVM, MVC, and Clean Architecture. I focus on application performance optimization, automated CI/CD pipelines, and high-quality native mobile engineering.</p>
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div style="display: flex; justify-content: center; width: 100%;">
-                        <div class="hero-actions">
-                            <button class="btn-primary" onclick="window.print()">
-                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
-                                </svg>
-                                PRINT / SAVE RESUME
-                            </button>
-                            <a href="#contact" class="btn-secondary">CONTACT ME</a>
-                        </div>
-                    </div>
-
-                    <div class="scroll-hint" style="margin-top: 30px;">
-                        <span class="scroll-dot"></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="content-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-tag"> Live App Store Applications</span>
-                        <h2 class="section-title">Projects</h2>
-                    </div>
-                    
-                    <div class="showcase-layout">
-                        <!-- Left: List of 10 Featured Applications -->
-                        <div class="projects-list-column">
-                            
-                            <!-- App 1: Stream (Go Viral) -->
-                            <div class="app-store-card active" data-app-id="stream">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #ff2d55, #ff9500);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Live Streaming</div>
-                                    <div class="app-name">Stream (Go Viral)</div>
-                                    <div class="app-short-desc">Agora SDK low-latency video calls and custom media editor.</div>
-                                </div>
-                                <a href="https://apps.apple.com/pk/app/stream-go-viral/id6755434754" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 2: Buzzscanner Pro -->
-                            <div class="app-store-card" data-app-id="buzzscanner">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #4cd964, #5ac8fa);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path><line x1="7" y1="12" x2="17" y2="12"></line></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">AI Utility</div>
-                                    <div class="app-name">Buzzscanner Pro</div>
-                                    <div class="app-short-desc">Vision SDK barcode scanner and customized QR code generation.</div>
-                                </div>
-                                <a href="https://apps.apple.com/pk/app/buzzscanner-pro/id6790825985" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 3: Bebelo - Bares de Madrid -->
-                            <div class="app-store-card" data-app-id="bebelo">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #5856d6, #007aff);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Travel & Local</div>
-                                    <div class="app-name">Bebelo</div>
-                                    <div class="app-short-desc">Madrid nightlife platform with Mapbox API & venue listings.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1613322776" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 4: Zophee -->
-                            <div class="app-store-card" data-app-id="zophee">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #34aadc, #1d4ed8);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Health & Wellness</div>
-                                    <div class="app-name">Zophee</div>
-                                    <div class="app-short-desc">Mental wellness, AVFoundation audio exercises, and fluid UI.</div>
-                                </div>
-                                <a href="https://apps.apple.com/pk/app/zophee/id6749799325" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 5: Xplore Smore -->
-                            <div class="app-store-card" data-app-id="xploresmore">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #007aff, #5ac8fa);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 8 5-5 5 15H2L8 3z"></path></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Navigation</div>
-                                    <div class="app-name">Xplore Smore</div>
-                                    <div class="app-short-desc">Offline resort trail maps and real-time CoreLocation tracking.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1552349182" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 6: BioTech Pet -->
-                            <div class="app-store-card" data-app-id="biotechpet">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #af52de, #ff2d55);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5C4.5 10.5 8 5.5 12 5.5s7.5 5 7.5 5-3.5 5-7.5 5-7.5-5-7.5-5z"></path><circle cx="12" cy="10.5" r="2"></circle></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">AI Healthcare</div>
-                                    <div class="app-name">BioTech Pet</div>
-                                    <div class="app-short-desc">DNA breed analysis, kit orders, and Firebase DB.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1661138888" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 7: ARMOR Asset Management -->
-                            <div class="app-store-card" data-app-id="armor">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #ff9500, #ff5b00);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Business Utility</div>
-                                    <div class="app-name">ARMOR Asset</div>
-                                    <div class="app-short-desc">Fleet location tracking, Core Data, and secure analytics.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1589139943" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 8: Rokoli Driver -->
-                            <div class="app-store-card" data-app-id="rokoli">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #ff3b30, #ff9500);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><line x1="16" y1="8" x2="20" y2="8"></line><line x1="16" y1="12" x2="23" y2="12"></line></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Navigation</div>
-                                    <div class="app-name">Rokoli Driver</div>
-                                    <div class="app-short-desc">Google Maps route optimization and real-time WebSockets.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1594943282" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 9: Tax Vault -->
-                            <div class="app-store-card" data-app-id="taxvault">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #30d158, #1d4ed8);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><path d="M12 11v6M9 14h6"></path></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Productivity</div>
-                                    <div class="app-name">Tax Vault</div>
-                                    <div class="app-short-desc">PDFTron editor, push notifications, and Firebase Admin.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1562913098" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                            <!-- App 10: inkLink Calendar -->
-                            <div class="app-store-card" data-app-id="inklink">
-                                <div class="app-icon-wrapper" style="background: linear-gradient(135deg, #007aff, #5856d6);">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                </div>
-                                <div class="app-details">
-                                    <div class="app-category">Productivity</div>
-                                    <div class="app-name">Letts inkLink</div>
-                                    <div class="app-short-desc">FSCalendar customization and daily paper planner barcode sync.</div>
-                                </div>
-                                <a href="https://apps.apple.com/app/id1524312891" target="_blank" class="app-store-btn" onclick="event.stopPropagation();">GET</a>
-                            </div>
-
-                        </div>
+                    <!-- Right: Grid of Skills categories (with icons) -->
+                    <div class="skills-matrix reveal">
                         
-                        <!-- Right: Stickied CSS iPhone Simulator Mockup -->
-                        <div class="simulator-column">
-                            <div class="iphone-device">
-                                <div class="iphone-notch"></div>
-                                <div class="iphone-screen" id="simulator-screen">
-                                    <!-- Initially populated with App 1 (Stream) data -->
-                                    <div class="sim-app-header">
-                                        <div class="sim-app-icon" style="background: linear-gradient(135deg, #ff2d55, #ff9500);">
-                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                                        </div>
-                                        <div class="sim-app-meta">
-                                            <div class="sim-app-name">Stream (Go Viral)</div>
-                                            <div class="sim-app-developer">Asadullah</div>
-                                            <a href="https://apps.apple.com/pk/app/stream-go-viral/id6755434754" target="_blank" class="sim-app-get-btn">GET</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="sim-app-stats">
-                                        <div class="sim-stat-box">
-                                            <div class="sim-stat-value">4.9 ★</div>
-                                            <div class="sim-stat-label">Rating</div>
-                                        </div>
-                                        <div class="sim-stat-box">
-                                            <div class="sim-stat-value">Agora SDK</div>
-                                            <div class="sim-stat-label">Core Tech</div>
-                                        </div>
-                                        <div class="sim-stat-box">
-                                            <div class="sim-stat-value">4+</div>
-                                            <div class="sim-stat-label">Age</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <div class="sim-section-title">Description</div>
-                                        <p class="sim-app-desc" id="sim-desc">Live streaming app with low-latency Agora video call integration and custom audio/video media editor.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <div class="sim-section-title">Key Frameworks</div>
-                                        <div class="sim-tech-pills" id="sim-tech">
-                                            <span class="sim-tech-pill">SwiftUI</span>
-                                            <span class="sim-tech-pill">UIKit</span>
-                                            <span class="sim-tech-pill">Agora SDK</span>
-                                            <span class="sim-tech-pill">MVVM</span>
-                                            <span class="sim-tech-pill">AVFoundation</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <div class="sim-section-title">App Store Preview</div>
-                                        <div class="sim-screenshot-wrapper">
-                                            <div class="sim-screenshot-pattern" id="sim-preview" style="background: linear-gradient(135deg, rgba(255,45,85,0.15), rgba(255,149,0,0.15)); border-radius: 8px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: rgba(255, 255, 255, 0.5);">
-                                                Stream Live Player Interface
-                                            </div>
-                                        </div>
-                                    </div>
+                        <!-- Cat 1: iOS Core -->
+                        <div class="skill-category-card">
+                            <div class="skill-cat-header">
+                                <div class="skill-cat-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                                 </div>
+                                <h3 class="skill-cat-title">iOS Core Frameworks</h3>
+                            </div>
+                            <div class="skills-pill-group">
+                                <span class="skill-pill">Swift 5.x</span>
+                                <span class="skill-pill">SwiftUI</span>
+                                <span class="skill-pill">UIKit</span>
+                                <span class="skill-pill">Combine</span>
+                                <span class="skill-pill">Swift Concurrency</span>
+                                <span class="skill-pill">AVFoundation</span>
+                                <span class="skill-pill">Core Data</span>
+                                <span class="skill-pill">SPM</span>
                             </div>
                         </div>
+
+                        <!-- Cat 2: Architecture & Design -->
+                        <div class="skill-category-card">
+                            <div class="skill-cat-header">
+                                <div class="skill-cat-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                                </div>
+                                <h3 class="skill-cat-title">Architecture &amp; Design</h3>
+                            </div>
+                            <div class="skills-pill-group">
+                                <span class="skill-pill">MVVM</span>
+                                <span class="skill-pill">MVC</span>
+                                <span class="skill-pill">Clean Architecture</span>
+                                <span class="skill-pill">Modular Codebases</span>
+                                <span class="skill-pill">SOLID Principles</span>
+                            </div>
+                        </div>
+
+                        <!-- Cat 3: Streaming, AI & SDKs -->
+                        <div class="skill-category-card">
+                            <div class="skill-cat-header">
+                                <div class="skill-cat-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                </div>
+                                <h3 class="skill-cat-title">Streaming &amp; AI Integration</h3>
+                            </div>
+                            <div class="skills-pill-group">
+                                <span class="skill-pill">Agora SDK</span>
+                                <span class="skill-pill">Vision SDK</span>
+                                <span class="skill-pill">OpenAI APIs</span>
+                                <span class="skill-pill">Google Maps SDK</span>
+                                <span class="skill-pill">Mapbox SDK</span>
+                                <span class="skill-pill">Firebase</span>
+                                <span class="skill-pill">REST APIs</span>
+                            </div>
+                        </div>
+
+                        <!-- Cat 4: DevOps & Testing -->
+                        <div class="skill-category-card">
+                            <div class="skill-cat-header">
+                                <div class="skill-cat-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                                </div>
+                                <h3 class="skill-cat-title">DevOps &amp; Performance</h3>
+                            </div>
+                            <div class="skills-pill-group">
+                                <span class="skill-pill">Xcode Instruments</span>
+                                <span class="skill-pill">Fastlane</span>
+                                <span class="skill-pill">Xcode Cloud</span>
+                                <span class="skill-pill">GitHub Actions</span>
+                                <span class="skill-pill">XCTest</span>
+                                <span class="skill-pill">AdMob</span>
+                                <span class="skill-pill">App Store Publishing</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Experience Section -->
-            <section id="experience" class="content-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-tag"> Professional Timeline</span>
-                        <h2 class="section-title">Experience</h2>
-                    </div>
-                    <div class="timeline">
-                        <!-- Role 1: Buzzware Tech -->
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">MARCH 2021 - PRESENT</div>
-                            <div class="timeline-content glow-card">
-                                <h3 class="role-title">Senior iOS Engineer</h3>
-                                <h4 class="company-name" style="color: var(--color-cyan); margin-bottom: 12px; font-weight: 600;">Buzzware Tech (Pvt) Ltd</h4>
-                                <ul style="list-style-type: square; margin-left: 18px; color: var(--color-text-secondary); font-size: 13.5px; line-height: 1.6; display: flex; flex-direction: column; gap: 8px;">
-                                    <li>Led native iOS development, successfully shipping 30+ applications to the App Store, spanning live video streaming, AI utility scanning, and location-based navigation.</li>
-                                    <li>Integrated Agora SDK for low-latency live video streaming and interactive voice calls, and built custom media editors using AVFoundation.</li>
-                                    <li>Architected modular applications in Swift, SwiftUI, and UIKit using MVVM/Clean Architecture, maintaining robust, decoupled, and testable codebases.</li>
-                                    <li>Optimized application performance, squashing memory leaks and main-thread bottlenecks via Xcode Instruments to achieve a 25% faster cold-start speed.</li>
-                                    <li>Automated certificate handling, testing, and deployment pipelines using Fastlane, GitHub Actions, and Xcode Cloud.</li>
-                                </ul>
-                            </div>
-                        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag"> Encrypted Transmission</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+
+                <div class="contact-grid">
+                    
+                    <!-- Left Column: Contact Channels info -->
+                    <div class="contact-info-panel reveal">
+                        <p class="contact-msg">Interested in collaborating on native iOS architectures, real-time Agora SDK implementations, or building custom mobile applications? Drop a line here.</p>
                         
-                        <!-- Role 2: Zong 4G -->
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">FEB 2020 - MARCH 2021</div>
-                            <div class="timeline-content glow-card">
-                                <h3 class="role-title">IT Support Officer</h3>
-                                <h4 class="company-name" style="color: var(--color-text-secondary); margin-bottom: 12px; font-weight: 600;">Zong 4G Pakistan</h4>
-                                <ul style="list-style-type: square; margin-left: 18px; color: var(--color-text-secondary); font-size: 13.5px; line-height: 1.6; display: flex; flex-direction: column; gap: 8px;">
-                                    <li>Managed enterprise IT hardware, active directories, and department network configurations.</li>
-                                    <li>Successfully resolved over 100+ hardware and software support tickets per quarter within SLA.</li>
-                                    <li>Co-led migration of 500+ corporate workstations to Windows 10, enhancing local network stability and cybersecurity.</li>
-                                </ul>
+                        <div class="contact-channels">
+                            <div class="contact-channel">
+                                <span class="channel-label">Developer Email</span>
+                                <a href="mailto:Asadullah.iosdev@gmail.com" class="channel-value">Asadullah.iosdev@gmail.com</a>
+                            </div>
+                            <div class="contact-channel">
+                                <span class="channel-label">Current Location</span>
+                                <span class="channel-value" style="cursor: default;">Islamabad, Pakistan</span>
+                            </div>
+                            <div class="contact-channel">
+                                <span class="channel-label">LinkedIn profile</span>
+                                <a href="https://www.linkedin.com/in/asad-ullah-bba46b1b0" target="_blank" class="channel-value" style="display:inline-flex; align-items:center; gap:6px;">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                                    linkedin.com/in/asad-ullah-bba46b1b0
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- About Me Section -->
-            <section id="about" class="content-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-tag"> Developer Profile</span>
-                        <h2 class="section-title">About Me</h2>
-                    </div>
-                    <div class="about-grid">
-                        <div class="about-text-card glow-card">
-                            <p class="about-para">I am a Senior iOS Software Engineer focused on building high-performance, modular native applications. Over the past 5 years, I have successfully shipped more than 30 production apps to the App Store, specializing in low-latency real-time video streaming, on-device AI tools, and advanced mapping utilities.</p>
-                            <p class="about-para">I believe in clean API design, strict architectural separation (MVVM/Clean Architecture), and automation. I utilize tools like Xcode Instruments to profile and squash memory leaks, Fastlane for continuous deployments, and native frameworks to ensure fluid user experiences rendering at 120 FPS.</p>
-                        </div>
-                        <div class="skills-card glow-card">
-                            <h3 class="skills-title">iOS Skill Matrix</h3>
-                            
-                            <div class="skills-tabs-container">
-                                <div class="skills-tabs-header">
-                                    <button class="skills-tab-btn active" data-tab="ios-core">iOS Core</button>
-                                    <button class="skills-tab-btn" data-tab="architecture">Architecture</button>
-                                    <button class="skills-tab-btn" data-tab="streaming-ai">Streaming &amp; AI</button>
-                                    <button class="skills-tab-btn" data-tab="devops-tuning">DevOps</button>
-                                </div>
-                                
-                                <!-- Tab 1: iOS Core -->
-                                <div class="skills-tab-pane active" id="tab-ios-core">
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Swift 5.x &amp; SwiftUI</div>
-                                        <div class="skill-matrix-desc">Primary tool for fluid layouts, reactive states, and native UI transitions.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">UIKit &amp; AVFoundation</div>
-                                        <div class="skill-matrix-desc">Low-level UI components, custom media editors, and audio sessions.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Swift Concurrency</div>
-                                        <div class="skill-matrix-desc">Asynchronous operations, thread safety, actors, and structured tasks.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Combine &amp; Core Data</div>
-                                        <div class="skill-matrix-desc">Reactive bindings, local offline databases, and data persistence.</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Tab 2: Architecture -->
-                                <div class="skills-tab-pane" id="tab-architecture">
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">MVVM &amp; MVC</div>
-                                        <div class="skill-matrix-desc">Maintained separation of concerns across 30+ production codebases.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Clean Architecture</div>
-                                        <div class="skill-matrix-desc">Decoupled data providers, testable business modules, and domain layers.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Modular Codebases</div>
-                                        <div class="skill-matrix-desc">Packaging reusable libraries and local modules using SPM.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">SOLID Principles</div>
-                                        <div class="skill-matrix-desc">Ensuring clean developer contracts, extensibility, and interface decoupling.</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Tab 3: Streaming & AI -->
-                                <div class="skills-tab-pane" id="tab-streaming-ai">
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Agora SDK</div>
-                                        <div class="skill-matrix-desc">Low-latency live video broadcasting and voice chat rooms (Stream app).</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Vision Framework</div>
-                                        <div class="skill-matrix-desc">On-device optical character recognition and scanning (Buzzscanner Pro).</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">OpenAI &amp; CoreML</div>
-                                        <div class="skill-matrix-desc">Integrating smart APIs and machine learning model predictions.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Mapbox &amp; Google Maps</div>
-                                        <div class="skill-matrix-desc">Offline navigation overlays, location tracking, and real-time route optimization.</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Tab 4: DevOps & Tuning -->
-                                <div class="skills-tab-pane" id="tab-devops-tuning">
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Xcode Instruments</div>
-                                        <div class="skill-matrix-desc">Profiling allocations, memory leak diagnostics, and thread debugging.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">Fastlane &amp; CI/CD</div>
-                                        <div class="skill-matrix-desc">Automated test suites running, certificate handling, and TestFlight deploys.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">GitHub Actions &amp; Xcode Cloud</div>
-                                        <div class="skill-matrix-desc">Automated PR checks, test automation, and compilation verification.</div>
-                                    </div>
-                                    <div class="skill-matrix-card">
-                                        <div class="skill-matrix-title">AdMob &amp; Monetization</div>
-                                        <div class="skill-matrix-desc">In-app purchases, subscription modeling, and interstitial native ads.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="content-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-tag"> Transmit Message</span>
-                        <h2 class="section-title">Contact</h2>
-                    </div>
-                    <div class="contact-layout">
-                        <div class="contact-info glow-card">
-                            <h3>Let's build native magic.</h3>
-                            <p>Interested in deploying high-performance native iOS systems or custom Swift products? Send a transmission below.</p>
-                            <div class="info-list">
-                                <div class="info-item">
-                                    <span class="info-label">Developer Email</span>
-                                    <a href="mailto:Asadullah.iosdev@gmail.com" class="info-val">Asadullah.iosdev@gmail.com</a>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Base Location</span>
-                                    <span class="info-val">Islamabad, Pakistan</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">LinkedIn</span>
-                                    <a href="https://www.linkedin.com/in/asad-ullah-bba46b1b0" target="_blank" class="info-val" style="display:inline-flex; align-items:center; gap:5px;">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#007aff"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                                        linkedin.com/in/asad-ullah-bba46b1b0
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="contact-form glow-card" id="portfolio-contact-form">
+                    <!-- Right Column: Glass Contact Form -->
+                    <div class="contact-form-panel reveal">
+                        <form class="contact-form" id="portfolio-contact-form">
                             <div class="form-group">
                                 <label for="form-name">Name</label>
                                 <input type="text" id="form-name" required placeholder="Your name">
@@ -518,28 +576,90 @@
                             </div>
                             <div class="form-group">
                                 <label for="form-message">Message</label>
-                                <textarea id="form-message" rows="4" required placeholder="Describe your iOS project details"></textarea>
+                                <textarea id="form-message" rows="4" required placeholder="Describe your project details..."></textarea>
                             </div>
                             <button type="submit" class="submit-btn" id="btn-submit">
-                                <span>SEND SECURE TRANSMISSION</span>
-                                <div class="btn-glow"></div>
+                                SEND TRANSMISSION
                             </button>
                             <div class="form-feedback" id="form-status"></div>
                         </form>
                     </div>
-                </div>
-            </section>
 
-            <!-- Footer inside the browser frame -->
-            <footer class="app-footer">
-                <p>&copy; 2026 Asadullah iOS Developer Portfolio. Shipped 30+ native applications.</p>
-            </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="site-footer">
+            <div class="section-container">
+                <p>&copy; 2026 Asadullah. Shipped 30+ native mobile applications. Designed for iOS Engineers.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- App Store Detail Modal (Hidden initially) -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close details">&times;</button>
+            <div class="modal-scrollable">
+                
+                <!-- App header summary -->
+                <div class="modal-app-header">
+                    <img class="modal-app-icon" id="modal-icon" src="" alt="App Icon">
+                    <div class="modal-app-meta">
+                        <h3 class="modal-app-title" id="modal-title">App Name</h3>
+                        <div class="modal-app-sub" id="modal-sub">Category</div>
+                        <a href="" target="_blank" class="modal-get-btn" id="modal-get-link">GET</a>
+                    </div>
+                </div>
+
+                <!-- Star Rating and Stats Summary -->
+                <div class="modal-store-stats">
+                    <div class="modal-stat-box">
+                        <div class="modal-stat-val" id="modal-stat-rating">4.8 ★</div>
+                        <div class="modal-stat-lbl" id="modal-stat-count">0 Ratings</div>
+                    </div>
+                    <div class="modal-stat-box">
+                        <div class="modal-stat-val" id="modal-stat-tech">SwiftUI</div>
+                        <div class="modal-stat-lbl">Primary Tech</div>
+                    </div>
+                    <div class="modal-stat-box">
+                        <div class="modal-stat-val" id="modal-stat-age">4+</div>
+                        <div class="modal-stat-lbl">Age Rating</div>
+                    </div>
+                </div>
+
+                <!-- Swipeable screenshots carousel -->
+                <div>
+                    <h4 class="modal-carousel-title">Screenshots</h4>
+                    <div class="modal-carousel" id="modal-screenshots">
+                        <!-- Screens will be dynamically added here -->
+                        <div class="carousel-shot-skeleton shimmer-loader"></div>
+                        <div class="carousel-shot-skeleton shimmer-loader"></div>
+                        <div class="carousel-shot-skeleton shimmer-loader"></div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="modal-body-section">
+                    <h4 class="modal-sec-title">Description</h4>
+                    <p class="modal-app-desc" id="modal-desc">App Store description text details.</p>
+                </div>
+
+                <!-- Key frameworks -->
+                <div class="modal-body-section">
+                    <h4 class="modal-sec-title">Frameworks &amp; Core Tech</h4>
+                    <div class="modal-tech-grid" id="modal-tech-list">
+                        <!-- Badges added dynamically -->
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <!-- Three.js CDN Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Custom scripts -->
+    <!-- Custom script logic -->
     <script src="main.js"></script>
 </body>
 </html>
