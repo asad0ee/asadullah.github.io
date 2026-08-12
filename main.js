@@ -372,6 +372,247 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // -------------------------------------------------------------
+    // Projects Showcase Simulator Data & Logic
+    // -------------------------------------------------------------
+    const projectsData = {
+        stream: {
+            name: "Stream (Go Viral)",
+            category: "Live Streaming",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/pk/app/stream-go-viral/id6755434754",
+            rating: "4.9 ★",
+            coreTech: "Agora SDK",
+            age: "4+",
+            desc: "Low-latency live streaming application with integrated Agora video call technology, custom AVFoundation audio/video editors, and high-fidelity native layouts.",
+            tech: ["SwiftUI", "UIKit", "Agora SDK", "MVVM", "AVFoundation"],
+            gradient: "linear-gradient(135deg, #ff2d55, #ff9500)",
+            previewText: "Stream Live Player Interface"
+        },
+        buzzscanner: {
+            name: "Buzzscanner Pro",
+            category: "AI Utility",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/pk/app/buzzscanner-pro/id6790825985",
+            rating: "4.8 ★",
+            coreTech: "Vision SDK",
+            age: "4+",
+            desc: "AI-powered scanner utility with real-time barcode and QR detection via Apple's Vision SDK, custom styling QR generation, and Google AdMob monetization.",
+            tech: ["Swift", "Vision SDK", "AI API", "CoreData", "AdMob"],
+            gradient: "linear-gradient(135deg, #4cd964, #5ac8fa)",
+            previewText: "AI Scanner Camera Screen"
+        },
+        bebelo: {
+            name: "Bebelo",
+            category: "Travel & Local",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1613322776",
+            rating: "4.7 ★",
+            coreTech: "Mapbox SDK",
+            age: "12+",
+            desc: "Interactive nightlife and bar discovery companion for Madrid. Features offline-capable Mapbox venue overlays, real-time geolocation pins, and drink price indexes.",
+            tech: ["Swift", "UIKit", "Mapbox SDK", "CoreLocation", "REST API"],
+            gradient: "linear-gradient(135deg, #5856d6, #007aff)",
+            previewText: "Madrid Interactive Nightlife Map"
+        },
+        zophee: {
+            name: "Zophee",
+            category: "Health & Wellness",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/pk/app/zophee/id6749799325",
+            rating: "4.9 ★",
+            coreTech: "AVFoundation",
+            age: "4+",
+            desc: "Mental wellness platform offering anxiety relief exercises, customized sleep guides, structured audio therapy sessions, and smooth layout transition animations.",
+            tech: ["Swift", "SwiftUI", "AVFoundation", "MVVM", "CoreGraphics"],
+            gradient: "linear-gradient(135deg, #34aadc, #1d4ed8)",
+            previewText: "Wellness Audio & Meditation Session"
+        },
+        xploresmore: {
+            name: "Xplore Smore",
+            category: "Navigation",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1552349182",
+            rating: "4.8 ★",
+            coreTech: "Mapbox SDK",
+            age: "4+",
+            desc: "Ski resort guide with fully customized offline trail maps, turn-by-turn navigation overlays, and continuous background GPS location tracking.",
+            tech: ["Swift", "UIKit", "Mapbox SDK", "CoreLocation", "Firebase"],
+            gradient: "linear-gradient(135deg, #007aff, #5ac8fa)",
+            previewText: "Ski Slope Offline Navigation Map"
+        },
+        biotechpet: {
+            name: "BioTech Pet",
+            category: "AI Healthcare",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1661138888",
+            rating: "4.7 ★",
+            coreTech: "AI Integration",
+            age: "4+",
+            desc: "AI genetics app analyzing pet DNA traits and providing health insights, custom kit ordering workflows, and real-time database synchronizations.",
+            tech: ["Swift", "SwiftUI/UIKit", "AI Integration", "Firebase", "REST API"],
+            gradient: "linear-gradient(135deg, #af52de, #ff2d55)",
+            previewText: "Pet Genetic Analysis Report"
+        },
+        armor: {
+            name: "ARMOR Asset Management",
+            category: "Business Utility",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1589139943",
+            rating: "4.8 ★",
+            coreTech: "Core Data",
+            age: "4+",
+            desc: "Fleet monitoring and corporate asset tracking suite featuring persistent local database storage, security logs, and live REST API coordination.",
+            tech: ["Swift", "UIKit", "Core Data", "RESTful APIs", "Firebase"],
+            gradient: "linear-gradient(135deg, #ff9500, #ff5b00)",
+            previewText: "Corporate Fleet Monitoring Panel"
+        },
+        rokoli: {
+            name: "Rokoli Driver",
+            category: "Navigation",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1594943282",
+            rating: "4.6 ★",
+            coreTech: "Google Maps API",
+            age: "4+",
+            desc: "Ambulatory and medical care transport app coordinating real-time driver dispatching, multi-stop route optimization, and live coordinate WebSockets.",
+            tech: ["Swift", "UIKit", "Google Maps API", "WebSockets", "CoreLocation"],
+            gradient: "linear-gradient(135deg, #ff3b30, #ff9500)",
+            previewText: "Driver Real-time Route Navigation"
+        },
+        taxvault: {
+            name: "Tax Vault",
+            category: "Productivity",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1562913098",
+            rating: "4.7 ★",
+            coreTech: "PDFTron SDK",
+            age: "4+",
+            desc: "Corporate tax document editor featuring local PDF signing, secure admin-to-client chat pipelines, and instant APNs push notifications.",
+            tech: ["Swift", "UIKit", "PDFTron SDK", "Firebase", "APNs"],
+            gradient: "linear-gradient(135deg, #30d158, #1d4ed8)",
+            previewText: "Secure PDF Document Viewer"
+        },
+        inklink: {
+            name: "Letts of London inkLink",
+            category: "Productivity",
+            developer: "Asadullah",
+            link: "https://apps.apple.com/app/id1524312891",
+            rating: "4.8 ★",
+            coreTech: "FSCalendar",
+            age: "4+",
+            desc: "Interactive schedule sync app combining physical Letts paper planners via daily QR codes, custom FSCalendar layouts, and offline tasks.",
+            tech: ["Swift", "UIKit", "FSCalendar", "CoreGraphics", "Vision SDK"],
+            gradient: "linear-gradient(135deg, #007aff, #5856d6)",
+            previewText: "Calendar Planner Dashboard"
+        }
+    };
+
+    const SVGIcons = {
+        stream: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>`,
+        buzzscanner: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path><line x1="7" y1="12" x2="17" y2="12"></line></svg>`,
+        bebelo: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+        zophee: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>`,
+        xploresmore: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 8 5-5 5 15H2L8 3z"></path></svg>`,
+        biotechpet: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5C4.5 10.5 8 5.5 12 5.5s7.5 5 7.5 5-3.5 5-7.5 5-7.5-5-7.5-5z"></path><circle cx="12" cy="10.5" r="2"></circle></svg>`,
+        armor: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+        rokoli: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><line x1="16" y1="8" x2="20" y2="8"></line><line x1="16" y1="12" x2="23" y2="12"></line></svg>`,
+        taxvault: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><path d="M12 11v6M9 14h6"></path></svg>`,
+        inklink: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`
+    };
+
+    const appCards = document.querySelectorAll('.app-store-card');
+    const simScreen = document.getElementById('simulator-screen');
+
+    appCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const appId = card.getAttribute('data-app-id');
+            const data = projectsData[appId];
+            if (!data) return;
+
+            // Remove active from all
+            appCards.forEach(c => c.classList.remove('active'));
+            // Add active to current
+            card.classList.add('active');
+
+            // Trigger visual fade transition inside simulator
+            simScreen.style.opacity = '0.2';
+            simScreen.style.transform = 'scale(0.97)';
+            simScreen.style.transition = 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+
+            setTimeout(() => {
+                // Update header and content
+                const headerIcon = simScreen.querySelector('.sim-app-icon');
+                headerIcon.style.background = data.gradient;
+                headerIcon.innerHTML = SVGIcons[appId];
+
+                simScreen.querySelector('.sim-app-name').textContent = data.name;
+                simScreen.querySelector('.sim-app-get-btn').href = data.link;
+
+                const stats = simScreen.querySelectorAll('.sim-stat-value');
+                stats[0].textContent = data.rating;
+                stats[1].textContent = data.coreTech;
+                stats[2].textContent = data.age;
+
+                document.getElementById('sim-desc').textContent = data.desc;
+
+                // Update Tech pills
+                const techContainer = document.getElementById('sim-tech');
+                techContainer.innerHTML = '';
+                data.tech.forEach(t => {
+                    const span = document.createElement('span');
+                    span.className = 'sim-tech-pill';
+                    span.textContent = t;
+                    techContainer.appendChild(span);
+                });
+
+                // Update preview pattern
+                const previewPattern = document.getElementById('sim-preview');
+                const colors = data.gradient.replace('linear-gradient(135deg,', '').replace(')', '').split(',');
+                const color1 = colors[0].trim();
+                const color2 = (colors[1] || colors[0]).trim();
+                previewPattern.style.background = `linear-gradient(135deg, ${color1}25, ${color2}25)`;
+                previewPattern.textContent = data.previewText;
+
+                // Fade back in
+                simScreen.style.opacity = '1';
+                simScreen.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+
+    // -------------------------------------------------------------
+    // Skills Matrix Tabs Logic
+    // -------------------------------------------------------------
+    const tabBtns = document.querySelectorAll('.skills-tab-btn');
+    const tabPanes = document.querySelectorAll('.skills-tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTab = btn.getAttribute('data-tab');
+
+            // Remove active class from buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            // Add active to clicked
+            btn.classList.add('active');
+
+            // Hide all tab panes
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+                pane.style.display = 'none';
+            });
+
+            // Show active pane
+            const activePane = document.getElementById(`tab-${targetTab}`);
+            if (activePane) {
+                activePane.style.display = 'grid';
+                setTimeout(() => {
+                    activePane.classList.add('active');
+                }, 10);
+            }
+        });
+    });
+
+    // -------------------------------------------------------------
     // Contact Form Interactive Handling
     // -------------------------------------------------------------
     const contactForm = document.getElementById('portfolio-contact-form');

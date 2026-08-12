@@ -908,3 +908,707 @@ body::before {
 .project-card:hover .project-screenshot {
     transform: scale(1.05);
 }
+
+/* ==========================================================================
+   NEW STYLES FOR REDESIGNED PORTFOLIO & CV INTEGRATION
+   ========================================================================== */
+
+/* Hero Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
+    z-index: 10;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.stat-num {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #ffffff 0%, #007aff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Action Buttons (Download/Print CV) */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    z-index: 10;
+}
+
+.btn-primary {
+    background: var(--color-cyan);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+    background: #0066d6;
+    box-shadow: 0 10px 20px rgba(0, 122, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Interactive iPhone Showcase Layout */
+.showcase-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.projects-list-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 580px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom Scrollbar for Project List */
+.projects-list-column::-webkit-scrollbar {
+    width: 4px;
+}
+.projects-list-column::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+.projects-list-column::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.projects-list-column::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.simulator-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+}
+
+/* App Store Style Card */
+.app-store-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-align: left;
+}
+
+.app-store-card:hover, .app-store-card.active {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--color-cyan);
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.08);
+}
+
+.app-store-card.active {
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.15);
+}
+
+.app-store-card .app-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 13px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.app-store-card .app-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 13px;
+    pointer-events: none;
+}
+
+.app-details {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.app-category {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--color-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+}
+
+.app-name {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-short-desc {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-store-btn {
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-cyan);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.app-store-card:hover .app-store-btn, .app-store-card.active .app-store-btn {
+    background: var(--color-cyan);
+    color: #ffffff;
+}
+
+/* CSS iPhone Mockup */
+.iphone-device {
+    position: relative;
+    width: 275px;
+    height: 550px;
+    background: #000000;
+    border-radius: 40px;
+    border: 9px solid #1c1c1e;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 4px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dynamic Island / Notch */
+.iphone-notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 22px;
+    background: #000000;
+    border-radius: 12px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.iphone-notch::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111115;
+    position: absolute;
+    right: 12px;
+    box-shadow: inset 0 0 2px rgba(255,255,255,0.2);
+}
+
+.iphone-screen {
+    width: 100%;
+    height: 100%;
+    background: #0d0d0f;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 40px 16px 20px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+.iphone-screen::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for native app feel */
+}
+
+/* Simulator Interface Elements */
+.sim-app-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sim-app-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sim-app-meta {
+    flex-grow: 1;
+}
+
+.sim-app-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.sim-app-developer {
+    font-size: 10.5px;
+    color: #8e8e93;
+    margin-bottom: 6px;
+}
+
+.sim-app-get-btn {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #007aff;
+    border: none;
+    border-radius: 15px;
+    padding: 4px 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.sim-app-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #2c2c2e;
+    border-bottom: 1px solid #2c2c2e;
+    padding: 8px 0;
+    text-align: center;
+}
+
+.sim-stat-box {
+    border-right: 1px solid #2c2c2e;
+}
+.sim-stat-box:last-child {
+    border-right: none;
+}
+
+.sim-stat-value {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.sim-stat-label {
+    font-size: 8px;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sim-section-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.sim-app-desc {
+    font-size: 11px;
+    color: #d1d1d6;
+    line-height: 1.45;
+}
+
+.sim-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sim-tech-pill {
+    font-size: 9.5px;
+    background: #1c1c1e;
+    border: 1px solid #2c2c2e;
+    border-radius: 6px;
+    padding: 3px 8px;
+    color: #aeaeb2;
+}
+
+.sim-screenshot-wrapper {
+    width: 100%;
+    height: 125px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2c2c2e;
+    background: #1c1c1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sim-screenshot-pattern {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Skills Matrix Tabs Component */
+.skills-tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.skills-tabs-header {
+    display: flex;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 10px;
+    gap: 4px;
+    overflow-x: auto;
+}
+
+.skills-tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.skills-tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.skills-tab-btn.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.skills-tab-pane {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.skills-tab-pane.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.skill-matrix-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 16px;
+    transition: var(--transition-smooth);
+}
+
+.skill-matrix-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.skill-matrix-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.skill-matrix-desc {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Print/Save Resume View Optimization */
+@media print {
+    /* Hide screen elements */
+    #bg-canvas, 
+    .webgl-container, 
+    .browser-header, 
+    .app-nav, 
+    .hero-profile-container, 
+    .hero-spacer, 
+    .hero-actions,
+    .scroll-hint, 
+    .simulator-column,
+    .app-store-btn,
+    .skills-tabs-header,
+    #contact, 
+    .app-footer {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #333333 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    .browser-window {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    .window-content {
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    .content-section {
+        padding: 20px 0 !important;
+        min-height: auto !important;
+        page-break-inside: avoid !important;
+        display: block !important;
+    }
+
+    .section-title {
+        font-size: 18px !important;
+        color: #000000 !important;
+        border-bottom: 1.5px solid #000000 !important;
+        padding-bottom: 4px !important;
+        margin-bottom: 12px !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+    }
+
+    .section-tag {
+        color: #555555 !important;
+        font-size: 9px !important;
+    }
+
+    /* Print layout for Projects */
+    .showcase-layout {
+        display: block !important;
+    }
+
+    .projects-list-column {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .app-store-card {
+        background: transparent !important;
+        border: 1px solid #dddddd !important;
+        border-radius: 8px !important;
+        margin-bottom: 10px !important;
+        padding: 10px !important;
+        page-break-inside: avoid !important;
+    }
+
+    .app-name {
+        color: #000000 !important;
+    }
+
+    .app-short-desc {
+        color: #444444 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
+    /* Print layout for Skills */
+    .skills-tab-pane {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        page-break-inside: avoid !important;
+    }
+
+    .skill-matrix-card {
+        background: transparent !important;
+        border: 1px solid #dddddd !important;
+        color: #000000 !important;
+    }
+
+    .skill-matrix-title {
+        color: #000000 !important;
+    }
+
+    .skill-matrix-desc {
+        color: #444444 !important;
+    }
+
+    /* Print layout for Timeline */
+    .timeline::before {
+        background: #bbbbbb !important;
+    }
+
+    .timeline-dot {
+        border-color: #000000 !important;
+        background: #ffffff !important;
+    }
+
+    .timeline-content {
+        background: transparent !important;
+        border: 1px solid #dddddd !important;
+        color: #333333 !important;
+    }
+
+    .role-title, .company-name {
+        color: #000000 !important;
+    }
+
+    .role-desc {
+        color: #444444 !important;
+    }
+}
+
+/* Mobile responsive fixes for showcase */
+@media (max-width: 900px) {
+    .showcase-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .simulator-column {
+        display: none; /* Hide interactive simulator on mobile to preserve layout integrity */
+    }
+
+    .projects-list-column {
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
