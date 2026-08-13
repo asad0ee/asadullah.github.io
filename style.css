@@ -155,11 +155,12 @@ body {
     color: var(--text-primary);
 }
 
-/* Scroll Reveal States */
+/* Scroll Reveal States (with staggered delay support) */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.6s ease-out var(--reveal-delay, 0ms),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
 }
 
 .reveal.visible {
@@ -411,13 +412,12 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 24px;
+    padding: 0; /* padding moved to inner */
     cursor: pointer;
     transition: var(--transition);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 310px;
+    flex-direction: row; /* side-by-side for featured cards */
+    min-height: 310px;
     position: relative;
     overflow: hidden;
 }
@@ -443,9 +443,60 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
+/* Inner card content wrapper */
+.bento-card-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    flex: 1;
+    z-index: 2;
+    min-width: 0;
+}
+
+/* Card screenshot preview (only shows on span-3 featured cards) */
+.card-screenshot-preview {
+    display: none; /* hidden by default on small cards */
+    width: 180px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid var(--border-color);
+}
+
+.span-3 .card-screenshot-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 19px 19px 0;
+}
+
+.screenshot-skeleton {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 19px 19px 0;
+}
+
+.bento-card:hover .card-screenshot {
+    transform: scale(1.05);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Column spanning definitions */
 .span-3 { grid-column: span 3; }
 .span-2 { grid-column: span 2; }
+
+/* span-2 cards stay column-only (no screenshot sidebar) */
+.span-2.bento-card {
+    flex-direction: column;
+    padding: 24px;
+}
 
 /* App Bento Card Internals */
 .bento-header {
@@ -548,7 +599,7 @@ body {
 }
 
 .card-view-btn {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     background: rgba(255, 255, 255, 0.06);
     color: var(--text-primary);
@@ -556,8 +607,10 @@ body {
     border-radius: 20px;
     padding: 5px 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .bento-card:hover .card-view-btn {
@@ -750,6 +803,10 @@ body {
 }
 
 /* Horizontal Swipeable Screenshots Carousel */
+.modal-carousel-wrapper {
+    margin-bottom: 35px;
+}
+
 .modal-carousel-title {
     font-family: var(--font-heading);
     font-size: 16px;
@@ -758,14 +815,50 @@ body {
     color: var(--text-primary);
 }
 
+.modal-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.carousel-arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 3;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-hover);
+}
+
+@media (max-width: 768px) {
+    .carousel-arrow {
+        display: none; /* swipe on mobile instead */
+    }
+}
+
 .modal-carousel {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    margin-bottom: 35px;
+    scroll-behavior: smooth;
     padding-bottom: 10px;
     scrollbar-width: none; /* Firefox */
+    flex: 1;
+    min-width: 0;
 }
 
 .modal-carousel::-webkit-scrollbar {
@@ -1121,6 +1214,9 @@ body {
     .span-3 {
         grid-column: span 2;
     }
+    .card-screenshot-preview {
+        width: 150px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1143,6 +1239,9 @@ body {
     }
     .span-3, .span-2 {
         grid-column: span 2;
+    }
+    .span-3 .card-screenshot-preview {
+        display: none;
     }
     .skills-matrix {
         grid-template-columns: 1fr;

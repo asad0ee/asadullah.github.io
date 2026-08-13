@@ -277,8 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateCardUI(card, data, appId) {
-        const img = card.querySelector('.app-icon');
-        const iconSkeleton = card.querySelector('.icon-skeleton');
+        const inner = card.querySelector('.bento-card-inner') || card;
+        const img = inner.querySelector('.app-icon');
+        const iconSkeleton = inner.querySelector('.icon-skeleton');
         
         // Icon update
         if (data.icon) {
@@ -300,19 +301,40 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder.style.fontFamily = 'var(--font-heading)';
             placeholder.textContent = config.letter || 'A';
             
-            card.querySelector('.bento-header').insertBefore(placeholder, img);
+            const header = inner.querySelector('.bento-header');
+            if (header) header.insertBefore(placeholder, img);
             img.remove();
             if (iconSkeleton) iconSkeleton.remove();
         }
 
         // Ratings update
-        const ratingSpan = card.querySelector('.app-store-rating');
-        const ratingSkeleton = card.querySelector('.rating-skeleton');
+        const ratingSpan = inner.querySelector('.app-store-rating');
+        const ratingSkeleton = inner.querySelector('.rating-skeleton');
         
         if (ratingSpan) {
             ratingSpan.querySelector('.rating-val').textContent = data.rating;
             ratingSpan.style.display = 'inline-flex';
             if (ratingSkeleton) ratingSkeleton.remove();
+        }
+
+        // Card screenshot preview (for featured span-3 cards)
+        const screenshotPreview = card.querySelector('.card-screenshot-preview');
+        if (screenshotPreview && data.screenshots && data.screenshots.length > 0) {
+            const screenshotImg = screenshotPreview.querySelector('.card-screenshot');
+            const screenshotSkeleton = screenshotPreview.querySelector('.screenshot-skeleton');
+            if (screenshotImg) {
+                screenshotImg.src = data.screenshots[0];
+                screenshotImg.loading = 'lazy';
+                screenshotImg.style.display = 'block';
+            }
+            if (screenshotSkeleton) screenshotSkeleton.remove();
+        } else if (screenshotPreview) {
+            // No screenshots — hide preview gracefully
+            const screenshotSkeleton = screenshotPreview.querySelector('.screenshot-skeleton');
+            if (screenshotSkeleton) {
+                screenshotSkeleton.classList.remove('shimmer-loader');
+                screenshotSkeleton.style.background = 'rgba(255,255,255,0.02)';
+            }
         }
     }
 
@@ -433,6 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const img = document.createElement('img');
                     img.className = 'carousel-shot';
                     img.src = url;
+                    img.loading = 'lazy';
                     img.alt = `${data.name} App Screenshot`;
                     mScreenshots.appendChild(img);
                 });
@@ -447,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     div.style.justifyContent = 'center';
                     div.style.color = 'var(--text-secondary)';
                     div.style.fontSize = '12px';
-                    div.innerHTML = `<span style="font-family: var(--font-mono)">Screenshot Fallback ${i+1}</span>`;
+                    div.innerHTML = `<span style="font-family: var(--font-mono)">No Preview</span>`;
                     mScreenshots.appendChild(div);
                 }
             }
@@ -480,6 +503,27 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    // -------------------------------------------------------------
+    // Carousel Arrow Navigation (desktop)
+    // -------------------------------------------------------------
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const scrollAmount = 220; // width of one screenshot + gap
+
+    if (carouselPrev) {
+        carouselPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mScreenshots.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    }
+
+    if (carouselNext) {
+        carouselNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mScreenshots.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
 
     // -------------------------------------------------------------
     // Contact Form Interactive Handling
